@@ -1,0 +1,82 @@
+.RepoPage__container {
+  padding: 20px;
+}
+
+.RepoPage__container h1 {
+  text-align: center;
+}
+
+.RepoPage__repos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 500px);
+  justify-content: center;
+  gap: 40px;
+}
+
+.RepoPage__repo {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 40px 0;
+  transition: 0.5s;
+  gap: 20px;
+}
+
+.RepoPage__repo p,
+.RepoPage__repo h2 {
+  padding-left: 10px;
+}
+
+.RepoPage__buttonContainer {
+  text-align: center;
+}
+
+.RepoPage__buttonContainer a {
+  background-color: #4267b2;
+  padding: 8px 10px;
+  border-radius: 5px;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 1);
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.RepoPage__repo a:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.7);
+}
+
+.RepoPage__hidden {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  opacity: 0;
+  transition: 0.5s;
+}
+.RepoPage__repo:hover .RepoPage__hidden {
+  opacity: 1;
+}
+
+.Repo__iconContainer {
+  display: flex;
+  border: 1px gray solid;
+  border-radius: 10px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  background-color: #fafafa;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.Repo__iconContainer:hover {
+  opacity: 0.7;
+}
+
+.Repo__icon {
+  display: flex;
+  height: 30px;
+  align-items: center;
+}

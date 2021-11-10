@@ -1,0 +1,85 @@
+.SearchUserPage__container {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  gap: 50px;
+}
+
+.SearchUserPage__search input,
+.SearchUserPage__search button {
+  padding: 8px;
+  font-size: 15px;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+.SearchUserPage__search input {
+  outline: none;
+  border: 1px black solid;
+  width: 100%;
+}
+
+.SearchUserPage__search button {
+  background-color: #4267b2;
+  justify-content: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.SearchUserPage__search button:hover {
+  opacity: 0.9;
+}
+
+.SearchUserPage__users {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.SearchUserPage__user {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(58, 12, 12, 0.2);
+  padding: 10px 0;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.5s;
+  max-width: 300px;
+  text-decoration: none;
+  color: black;
+}
+
+.SearchUserPage__user h3 {
+  text-align: center;
+}
+
+.SearchUserPage__user:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.7);
+}
+
+.SearchUserPage__img img {
+  width: 100%;
+}
+
+.SearchUserPage__userInfo {
+  padding-left: 10px;
+}
+
+.SearchUserPage__userInfo p {
+  font-size: 12px;
+  width: 300px;
+}
+
+.SearchUserPage__userInfo p:first-child {
+  font-size: 14px;
+}
+.SearchUserPage__userInfo p:last-child {
+  opacity: 0.8;
+}
+
+.SearchUserPage__errorSearch {
+  background-color: white;
+  border: 1px orangered solid;
+  padding-left: 10px;
+}
