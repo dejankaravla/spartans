@@ -22,13 +22,15 @@ function SearchUserPage() {
     axios
       .get(`https://api.github.com/users/${newUser.replace(" ", "").toLowerCase()}`)
       .then((res) => {
-        console.log(res);
+        // I didn't want to lose my searched users, so i copied an array and added new user. If I wanted to have only one user, I would just update getUsers with response.data.
         const allUsers = [...users];
         allUsers.unshift(res.data);
         dispatch(getUsers(allUsers));
         dispatch(getNewUser(""));
       })
       .catch(() => {
+        // I could just pass the error and display the message, but I think that for the app user status 404 or 403 would not be of use.
+        // If the app was bigger, I could make something like if(error === 404){message is that }, if(error === 403){message is something else} and etc...
         dispatch(setErrorSearch(true));
         dispatch(getNewUser(""));
         setTimeout(() => {
@@ -38,7 +40,7 @@ function SearchUserPage() {
   };
 
   return (
-    <div className="SearchUserPage">
+    <div style={{ background: "#fafafa" }} className="SearchUserPage">
       <div className="SearchUserPage__container">
         <div>
           <form className="SearchUserPage__search">
@@ -51,6 +53,7 @@ function SearchUserPage() {
               Submit
             </button>
           </form>
+          {/* This error will display if can't find the user we searched but it will disappear in 3 seconds */}
           {errorSearch ? (
             <div className="SearchUserPage__errorSearch">
               <h2>Error</h2>
@@ -64,16 +67,24 @@ function SearchUserPage() {
         <div className="SearchUserPage__users">
           {users.map((usersData) => {
             return (
-              <Link onClick={() => dispatch(selectUser(usersData))} to="/userRepos" className="SearchUserPage__user">
-                <h3>{usersData.login}</h3>
+              // With a click on this link we are selecting the user, passing the values to redux state and redirecting to RepoPage.
+              <Link
+                key={usersData.id}
+                onClick={() => dispatch(selectUser(usersData))}
+                to="/userRepos"
+                className="SearchUserPage__user"
+              >
+                <h3 style={{ textAlign: "center" }}>{usersData.login}</h3>
                 <div className="SearchUserPage__img">
-                  <img src={usersData.avatar_url} alt="avatar" />
+                  <img style={{ width: "100%" }} src={usersData.avatar_url} alt="avatar" />
                 </div>
                 <div className="SearchUserPage__userInfo">
+                  {/* The users don't have description. Only org users(organisations) have description. The users have bio. The problem was, almost every user didn't fill his bio. */}
                   <p>
                     <strong>Bio: </strong>
                     {(usersData.bio || "This user didn't fill his bio.").split(/\s+/).slice(0, 12).join(" ")}
                   </p>
+                  {/* I added created date because if the user didn't fill his bio, the card looks empty */}
                   <p>
                     <strong>Created:</strong> {new Date(usersData.created_at).toLocaleDateString("sr-RS")} at{" "}
                     {new Date(usersData.created_at).toLocaleTimeString("sr-RS")}

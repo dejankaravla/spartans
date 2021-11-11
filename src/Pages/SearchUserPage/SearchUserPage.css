@@ -11,20 +11,16 @@
   font-size: 15px;
   margin: 5px;
   border-radius: 3px;
-}
-
-.SearchUserPage__search input {
-  outline: none;
   border: 1px black solid;
-  width: 100%;
+  outline: none;
 }
 
 .SearchUserPage__search button {
   background-color: #4267b2;
-  justify-content: center;
   color: white;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .SearchUserPage__search button:hover {
@@ -50,10 +46,6 @@
   color: black;
 }
 
-.SearchUserPage__user h3 {
-  text-align: center;
-}
-
 .SearchUserPage__user:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.7);
 }
@@ -66,16 +58,14 @@
   padding-left: 10px;
 }
 
-.SearchUserPage__userInfo p {
-  font-size: 12px;
-  width: 300px;
-}
-
 .SearchUserPage__userInfo p:first-child {
   font-size: 14px;
+  width: 300px;
 }
 .SearchUserPage__userInfo p:last-child {
   opacity: 0.8;
+  font-size: 12px;
+  width: 300px;
 }
 
 .SearchUserPage__errorSearch {
