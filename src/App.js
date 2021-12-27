@@ -23,6 +23,7 @@ function App() {
           {/* Repo page, where we can see all the repos from the user who we selected. If the RepoPage is reloaded, it will redirect to SearchUserPage */}
           <Route path="/userRepos" element={users.length < 1 ? <Navigate to="/" /> : <RepoPage />} />
         </Routes>
+        <h2>Dejan Karavla</h2>
       </Router>
     </div>
   );
