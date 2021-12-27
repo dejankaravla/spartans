@@ -24,7 +24,6 @@ function App() {
           <Route path="/userRepos" element={users.length < 1 ? <Navigate to="/" /> : <RepoPage />} />
         </Routes>
         <h2>Dejan Karavla</h2>
-        <h2>dasdasdasd</h2>
       </Router>
     </div>
   );
